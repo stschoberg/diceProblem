@@ -6,8 +6,8 @@ public class die {
 	//properties of a die
 	int[] faces;
 	float winPercentage;
-	static int wins;
-	static int losses;
+	int wins;
+	int losses;
 	
 	//standard constructors
 	
@@ -43,5 +43,28 @@ public class die {
 	@Override
 	public String toString() {
 		return "Faces: " + Arrays.toString(faces) + " Win percentage: " + winPercentage;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj == this) {
+			return true;
+		}
+		if(!(obj instanceof die)) {
+			return false;
+		}
+		
+		die d = (die)obj;
+		
+		Arrays.sort(this.faces);
+		Arrays.sort(d.faces);
+		
+		for(int i = 0; i < d.faces.length; i++) {
+			if(d.faces[i] != this.faces[i]) {
+				return false;
+			}
+		}
+		
+		return true;
 	}
 }

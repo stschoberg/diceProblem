@@ -25,8 +25,14 @@ public class dieProblem {
 
 			//prints winnerList
 			for(int i = 0; i < winnerList.size(); i++) {
+				int[] temp = winnerList.get(i).faces;
+				Arrays.sort(temp);
+				
+				//want to implement sorting the sorted arrays after learning more about comparator and maps
 				System.out.println(winnerList.get(i).toString());
 			}
+			
+			sc.close();
 		}
 	}
 	//Helper Methods***************************************************************************
@@ -136,4 +142,5 @@ public class dieProblem {
 		}
 		return nums;
 	}
+	
 }
